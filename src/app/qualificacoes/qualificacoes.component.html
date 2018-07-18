@@ -1,0 +1,12 @@
+<main>
+    <div>
+      <h2>Qualificações Profissionais</h2>
+      <div *ngFor="let skill of skills"  class="boxShadowFlt">
+        <h3>{{ skill.titulo }}</h3>
+        <ul>
+          <li *ngFor="let sk of skill.skill">{{ sk }}</li>
+        </ul>
+
+      </div>
+    </div>
+  </main>

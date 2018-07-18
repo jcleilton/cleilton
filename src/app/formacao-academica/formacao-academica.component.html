@@ -1,0 +1,11 @@
+<main>
+    <div class="" style="box-shadow: 0 0 5px #444;">
+      <h2>Formação Acadêmica</h2>
+      <div *ngFor="let educ of education" class="boxShadowLg">
+        <h3>{{ educ.tittle }}</h3>
+        <p>Instituição de ensino: {{ educ.institution }}</p>
+        <p>Data de ingresso: {{ educ.beginning }}</p>
+        <p>Término ou Previsão de conclusão: {{ educ.ending }}</p>
+      </div>
+    </div>
+  </main>

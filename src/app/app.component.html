@@ -1,20 +1,93 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Header Begin -->
+<header>
+    <!-- Nav Begin -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+      <a class="navbar-brand" href="#" (click)="changeContent('contact')">Cleilton</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Div NavBar Collapse Begin -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" id="menuBlock" href="#" (click)="changeContent('interestings')">Objetivos <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="menuBlock" href="#" (click)="changeContent('skills')">Qualificações <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="menuBlock" href="#" (click)="changeContent('education')">Formação <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="menuBlock" href="#" (click)="changeContent('experience')">Experiência <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="menuBlock" href="#" (click)="changeContent('languages')">Línguas <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="menuBlock" href="#" (click)="changeContent('courses')">Cursos <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+
+        <div class="form-inline my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+            <li [hidden]="logon" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Editar
+              </a>
+              <form [hidden]="logon" class="dropdown-menu p-4" aria-labelledby="navbarDropdown">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail">Email:</label>
+                  <input type="email" class="form-control" id="mail" placeholder="email@exemplo.com" #mail>
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword">Password:</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" #password>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="keeping" #keeping>
+                  <label class="form-check-label" for="dropdownCheck">
+                    Manter-me conectado
+                  </label>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="login(mail.value, password.value , keeping.value)">Entrar</button>
+              </form>
+              <li [hidden]="!logon" class="nav-item">
+                <a class="nav-link" href="#" (click)="logOut()" [innerText]="'<' + user + '> sair'"> <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" target="blank" href="https://www.linkedin.com/in/jcleilton/">Perfil no LinkedIn<span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Div NavBar Collapse End -->
+
+      </nav>
+      <!-- Nav End -->
+
+    </header>
+    <!-- Header End -->
+
+      <div class="container" [ngSwitch]="getContent()">
+        <div *ngSwitchCase="'interestings'"><app-objetivos></app-objetivos> </div>
+        <div *ngSwitchCase="'skills'"><app-qualificacoes></app-qualificacoes> </div>
+        <div *ngSwitchCase="'education'"><app-formacao-academica></app-formacao-academica> </div>
+        <div *ngSwitchCase="'experience'"><app-portfolio></app-portfolio> </div>
+        <div *ngSwitchCase="'languages'"><app-linguas></app-linguas> </div>
+        <div *ngSwitchCase="'courses'"><app-certificados></app-certificados> </div>
+        <div *ngSwitchDefault><app-contato></app-contato> </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <span class="text-muted">Copyright &copy; 2018 </span>
+          <span class="text-muted">by José Cleilton Feitosa </span>
+        </div>
+      </footer>
+
+
+
 

@@ -1,0 +1,11 @@
+<main>
+    <div>
+      <h2>Línguas</h2>
+      <div *ngFor="let language of languages" class="boxShadowFlt">
+        <h2>{{ language.tittle }}</h2>
+        <p>Fala: {{ language.speaking }}</p>
+        <p>Escrita: {{ language.wrinting }}</p>
+        <p>Leitura: {{ language.reading }}</p>
+      </div>
+    </div>
+  </main>

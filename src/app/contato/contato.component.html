@@ -1,0 +1,19 @@
+<main>
+    <address>
+      <div id="boxShadowFlt">
+        <img class="img"  id="imgContact" src="https://jcleilton.herokuapp.com/img/cleilton.jpeg" alt="José Cleilton Feitosa">
+      </div>
+      <div class="boxShadow">
+        <h2>Endereço</h2>
+        <p>{{ address }}</p>
+        <p>{{ neighborhood + ' - ' + cityState }}</p>
+      </div>
+      <div class="boxShadow">
+        <p>Data de nascimento: {{ bornDate }}</p>
+        <p>Telefone celular: <a [href]="'tel: +55' + phoneNumber">{{ phoneNumber }}</a></p>
+        <p>Email: <a [href]="'mailto:' + email">{{ email }}</a></p>
+        <p>Perfil no LinkedIn: <a [href]="linkedIn"> {{ linkedIn }}</a></p>
+      </div>
+
+    </address>
+  </main>
