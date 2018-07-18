@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObjetivosComponent implements OnInit {
 
+  interesting = 'Analista de sistemas desenvolvedor desktop, web e mobile';
+
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+
